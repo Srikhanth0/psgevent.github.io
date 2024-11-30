@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Event Management</title>
   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
     /* General Reset */
     * {
@@ -62,7 +63,7 @@
     }
 
     /* Hero Section */
-    .hero {
+    header.hero {
       background: url('hero-bg.jpeg') no-repeat center center/cover;
       height: 100vh;
       display: flex;
@@ -75,7 +76,7 @@
 
     .hero-content {
       max-width: 600px;
-      background: rgba(255, 255, 255, 0.8); /* Semi-transparent box */
+      background: rgba(255, 255, 255, 0.8);
       padding: 1.5rem;
       border-radius: 8px;
     }
@@ -89,8 +90,8 @@
 
     .hero h2 {
       font-family: 'Lobster', cursive;
-      font-size: 35px; /* Larger size */
-      color: #333; /* Different color */
+      font-size: 35px;
+      color: #333;
       margin-bottom: 1rem;
     }
 
@@ -108,7 +109,7 @@
     }
 
     /* Packages Section */
-    .packages {
+    section#packages {
       padding: 2rem;
       text-align: center;
       background: #f4f4f4;
@@ -126,11 +127,11 @@
       padding: 1rem;
       text-align: center;
       width: 300px;
-      height: 450px; /* Doubled height */
+      height: 450px;
       border-radius: 15px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      font-family: 'Helvetica', serif; /* Premium Font */
+      font-family: 'Helvetica', serif;
     }
 
     .card:hover {
@@ -153,24 +154,23 @@
     }
 
     /* Gallery Section */
-.gallery {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Two columns */
-  gap: 1rem;
-  padding: 2rem;
-}
+    section#gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      padding: 2rem;
+    }
 
-.gallery img {
-  width: 100%; /* Ensures uniform width */
-  height: 400px; /* Increased height */
-  object-fit: cover; /* Maintains aspect ratio */
-  border-radius: 8px;
-  cursor: pointer;
-}
-
+    .gallery img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+    }
 
     /* Contact Section */
-    .contact {
+    section#contact {
       background: #343638;
       color: white;
       padding: 2rem;
@@ -198,12 +198,34 @@
       font-size: 1.5rem;
       margin-right: 0.5rem;
     }
+
+    /* Footer Section */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #313131;
+      color: white;
+    }
+
+    /* Back-to-Top Button */
+    #back-to-top {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: #ff4a3a;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      display: none;
+    }
   </style>
 </head>
 <body>
   <!-- Navigation Bar -->
   <nav class="nav-bar">
-    <img src="logo 1.png" alt="Logo" class="logo">
+    <img src="logo 1.png" alt="Event Management Company Logo" class="logo">
     <ul>
       <li><a href="#packages">Packages</a></li>
       <li><a href="#gallery">Gallery</a></li>
@@ -221,7 +243,7 @@
   </header>
 
   <!-- Packages Section -->
-  <section id="packages" class="packages">
+  <section id="packages">
     <h2>Choose Your Package</h2>
     <div class="package-cards">
       <div class="card basic">
@@ -261,15 +283,15 @@
   </section>
 
   <!-- Gallery Section -->
-  <section id="gallery" class="gallery">
-    <img src="gallery 1.jpeg" alt="Event 1">
-    <img src="gallery 2.jpg" alt="Event 2">
-    <img src="gallery 3.jpg" alt="Event 3">
-    <img src="gallery 6.jpg" alt="Event 4">
+  <section id="gallery">
+    <img src="gallery 1.jpeg" alt="Wedding Event Setup" loading="lazy">
+    <img src="gallery 2.jpg" alt="Corporate Event" loading="lazy">
+    <img src="gallery 3.jpg" alt="Birthday Celebration" loading="lazy">
+    <img src="gallery 6.jpg" alt="Outdoor Party" loading="lazy">
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="contact">
+  <section id="contact">
     <h2>Book Your Event Now!!</h2>
     <div class="contact-details">
       <p><span class="icon">📞</span> +1 (234) 567-8910</p>
@@ -278,9 +300,10 @@
     </div>
   </section>
 
-  <!-- Footer Section -->
-  <footer>
-    <p>&copy; 2024 Event Management</p>
-  </footer>
-</body>
-</html>
+  <!-- Back-to-Top Button -->
+  <button id="back-to-top">↑</button>
+  <script>
+    const btn = document.getElementById("back-to-top");
+    window.onscroll = () => {
+      btn.style.display = window.scrollY > 200 ? "block" : "none";
+   
